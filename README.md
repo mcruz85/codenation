@@ -6,6 +6,12 @@ Repositório com a implementação dos desafios do projeto aceleradev Java reali
 
  - [Fibonacci](https://github.com/mcruz85/codenation/tree/master/java-0)
  - [Criptografia de Júlio César](https://github.com/mcruz85/codenation/tree/master/java-6)
- - [https://github.com/mcruz85/codenation/tree/master/java-13](https://github.com/mcruz85/codenation/tree/master/java-13)
+ - [Calculadora de Salário Líquido](https://github.com/mcruz85/codenation/tree/master/java-13)
  
 ## Módulo 2
+
+ - [Gerenciador de Times de Futebol](https://github.com/mcruz85/codenation/tree/master/java-1)
+ - [Controle de estacionamento](https://github.com/mcruz85/codenation/tree/master/java-7)
+ - [Media, Moda e Mediana](https://github.com/mcruz85/codenation/tree/master/java-14)
+
+
