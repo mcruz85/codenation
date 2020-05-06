@@ -13,5 +13,9 @@ Repositório com a implementação dos desafios do projeto aceleradev Java reali
  - [Gerenciador de Times de Futebol](https://github.com/mcruz85/codenation/tree/master/java-1)
  - [Controle de estacionamento](https://github.com/mcruz85/codenation/tree/master/java-7)
  - [Media, Moda e Mediana](https://github.com/mcruz85/codenation/tree/master/java-14)
+ 
+## Módulo 3
+
+ - [Utilitário - Calculador de atributos de Classe](https://github.com/mcruz85/codenation/tree/master/java-8)
 
 
