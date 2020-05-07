@@ -1,15 +1,4 @@
-
-Welcome to Gradle 4.10.3!
-
-Here are the highlights of this release:
- - Incremental Java compilation by default
- - Periodic Gradle caches cleanup
- - Gradle Kotlin DSL 1.0-RC6
- - Nested included builds
- - SNAPSHOT plugin versions in the `plugins {}` block
-
-For more details see https://docs.gradle.org/4.10.3/release-notes.html
-
+Starting a Gradle Daemon, 1 incompatible Daemon could not be reused, use --status for details
 > Task :clean
 > Task :compileJava
 > Task :processResources NO-SOURCE
@@ -19,5 +8,5 @@ For more details see https://docs.gradle.org/4.10.3/release-notes.html
 > Task :testClasses
 > Task :test
 
-BUILD SUCCESSFUL in 7s
+BUILD SUCCESSFUL in 15s
 4 actionable tasks: 4 executed

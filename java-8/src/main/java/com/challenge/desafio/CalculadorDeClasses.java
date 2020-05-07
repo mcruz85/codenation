@@ -14,59 +14,44 @@ import java.util.stream.Collectors;
 
 public class CalculadorDeClasses implements Calculavel {
     @Override
-    public BigDecimal somar(Object o) {
-
-
-        BigDecimal soma =
-                getCamposByAnnotation(o, Somar.class)
-                .stream()
-                .map(f -> {
-
-                    if (f.getType().isAssignableFrom(BigDecimal.class)) {
-                        try {
-                            f.setAccessible(true);
-                            return (BigDecimal) f.get(o);
-                        } catch (IllegalAccessException | IllegalArgumentException e) { e.printStackTrace(); }
-                    }
-
-                    return BigDecimal.ZERO;
-                })
-                .reduce(BigDecimal::add)
-                .orElse(BigDecimal.ZERO);
-
-        System.out.println("result: " + soma);
-
-        return soma;
+    public BigDecimal somar(Object object) {
+        return calcular(object, Somar.class);
     }
 
     @Override
-    public BigDecimal subtrair(Object o) {
-        BigDecimal subtracao =
-                getCamposByAnnotation(o, Subtrair.class)
-                        .stream()
-                        .map(f -> {
-
-                            if (f.getType().isAssignableFrom(BigDecimal.class)) {
-                                try {
-                                    f.setAccessible(true);
-                                    return (BigDecimal) f.get(o);
-                                } catch (IllegalAccessException | IllegalArgumentException e) { e.printStackTrace(); }
-                            }
-
-                            return BigDecimal.ZERO;
-                        })
-                        .reduce(BigDecimal::add)
-                        .orElse(BigDecimal.ZERO);
-
-        return subtracao;
-
+    public BigDecimal subtrair(Object object) {
+        return calcular(object, Subtrair.class);
     }
 
+
+    private BigDecimal calcular(Object objeto, Class<? extends Annotation> annotationClass) {
+        validarObjeto(objeto);
+        BigDecimal total = BigDecimal.ZERO;
+
+        for (Field field : getCamposByAnnotation(objeto, annotationClass)) {
+            if (field.getType().equals(BigDecimal.class)) {
+                try {
+                    field.setAccessible(true);
+                    total = total.add((BigDecimal) field.get(objeto));
+                } catch (IllegalArgumentException | IllegalAccessException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+
+        return total;
+    }
+
+    private void validarObjeto(Object objeto) {
+        if (objeto == null) {
+            throw new IllegalArgumentException("o objeto nulo");
+        }
+    }
 
     private List<Field> getCamposByAnnotation(Object object, Class<? extends Annotation> annotationClass) {
-
         return Arrays.stream(object.getClass().getDeclaredFields())
-                .filter(f -> f.isAnnotationPresent(annotationClass) )
+                .filter(f -> f.isAnnotationPresent(annotationClass))
                 .collect(Collectors.toCollection(ArrayList::new));
     }
+
 }
